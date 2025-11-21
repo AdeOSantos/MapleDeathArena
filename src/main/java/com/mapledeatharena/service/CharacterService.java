@@ -18,10 +18,10 @@ public class CharacterService {
     // Pattern for name validation: 4-15 characters, only letters and underscores
     private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z_]{4,15}$");
 
-    /**
-     * Create a new character with validation
-     */
+
+    // Create a new character with validation
     public Character create(String name, String jobName) {
+
         // Validate name
         validateName(name);
 
@@ -40,23 +40,22 @@ public class CharacterService {
         return character;
     }
 
-    /**
-     * Get all characters
-     */
+
+
+    // Get all characters
     public List<Character> getAll() {
         return characters.values().stream().toList();
     }
 
-    /**
-     * Get character by ID
-     */
+
+    // Get character by ID
     public Optional<Character> getById(String id) {
         return Optional.ofNullable(characters.get(id));
     }
 
-    /**
-     * Validate character name
-     */
+
+
+    // Validate character name
     private void validateName(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be empty");
@@ -68,9 +67,9 @@ public class CharacterService {
         }
     }
 
-    /**
-     * Validate and parse job name
-     */
+
+
+    // Validate and parse job name
     private Job validateJob(String jobName) {
         if (jobName == null || jobName.isBlank()) {
             throw new IllegalArgumentException("Job cannot be empty");
@@ -84,16 +83,14 @@ public class CharacterService {
         }
     }
 
-    /**
-     * Update character state (used after battles)
-     */
+
+    // Update character state - used after battles
     public void update(Character character) {
         characters.put(character.getId(), character);
     }
 
-    /**
-     * Clear all characters (useful for testing)
-     */
+
+    // Clear all characters - useful for testing
     public void clear() {
         characters.clear();
         idGenerator.set(1);
