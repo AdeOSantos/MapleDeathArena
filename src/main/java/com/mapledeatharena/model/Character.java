@@ -14,14 +14,13 @@ public class Character {
     private String name;
     private Job job;
 
-    // Core attributes
     private int healthPoints;
     private int maxHealthPoints;
     private int strength;
     private int dexterity;
     private int intelligence;
 
-    // Battle modifiers (calculated from job)
+    // Battle modifiers - calculated from Job.
     private double attackModifier;
     private double speedModifier;
 
@@ -29,7 +28,7 @@ public class Character {
     @Builder.Default
     private boolean alive = true;
 
-    // Future-proof: Level system (not implemented yet)
+    // Future-proof: Level system - not implemented yet
     @Builder.Default
     private int level = 1;
 
@@ -72,7 +71,7 @@ public class Character {
     }
 
     /**
-     * Check if character is dead
+     * Simple check if character is dead
      */
     public boolean isDead() {
         return !alive;
